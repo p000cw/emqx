@@ -18,11 +18,11 @@ jobs:
             make eunit
             make ct
             make cover
-        - uses: coverallsapp/github-action@master
-        - name: Send coveralls
+        - name: Coveralls
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          run: rebar3 coveralls send
+          run: |
+              make coveralls
         - uses: actions/upload-artifact@v1
           if: always()
           with:
