@@ -7,6 +7,8 @@ case {os:getenv("GITHUB_ACTIONS"), os:getenv("GITHUB_TOKEN")} of
     {ok, EventFile} = file:read_file(EventPath),
     io:format("~s~n", [EventFile]),
 
+    io:format("All Env: ~p~n", [os:getenv()]),
+
     JobId = os:getenv("GITHUB_RUN_ID"),
     [{coveralls_service_job_id, JobId},
      {coveralls_repo_token, Token},
